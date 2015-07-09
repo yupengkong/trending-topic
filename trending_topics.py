@@ -228,34 +228,6 @@ def topics_list():  # read from database to get a list of topics which will be c
 	return data
 
 
-def databaseConn():
-
-	global cur
-	global conn
-
-	dbname = 'nba'
-	user = 'nba'
-	host = '199.188.118.164'
-	password = 'nba'
-
-	try:
-
-		conn = psycopg2.connect(
-        "dbname='" + dbname
-        + "' user='" + user
-        + "' host='" + host
-        + "' password='" + password
-        + "'"
-    )
-
-	except Exception:
-		print "unable to connect to the database"
-
-	cur = conn.cursor()
-
-	return cur, conn
-
-
 if __name__ == "__main__":  
 
 	startDate = '2015-06-01'  # specify the time window, so far, I only consider 7 days(a week), need to change the database schema
@@ -292,5 +264,4 @@ if __name__ == "__main__":
 	#print final
 	final.to_csv('output2.csv')
 
-#/m/01l5y1 [430355, 363158, 791248, 2495203, 2045500, 3138334, 1758666] [214, 121, 206, 239, 277, 192, 62]
 
